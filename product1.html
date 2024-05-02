@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Home</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/forms.css">
+    <link rel="stylesheet" href="css/product.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+</head>
+<body>
+    <header class="main-header">
+        <nav class="main-header__nav">
+            <ul class="main-header__item-list">
+                <li class="main-header__item"><a href="home.html">home</a></li>
+                <li class="main-header__item"><a href="shop.html">Shopping cart</a></li>
+                <li class="main-header__item"><a  href="checkout.html">Checkout</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-6 text-center">
+                    <img src="images/product1.jpg" class="img-fluid img-thumbnail" alt="">
+                    <h2>Product No.1</h2>
+                    <h2 id="product1">50 $</h2>
+                    <div class="input-group">
+                        <input type="number" id="quantity" oninput="handleInputChange()" name="quantity" min="1" max="100" value="1" class="form-control">
+                    </div>
+                    <div class="input-group-append">
+                        <button class="btn btn-primary" type="button" id="increase">+</button>
+                        <button class="btn btn-primary" type="button" id="decrease">-</button>
+                    </div>
+                    <div class="input-group-append">
+                        <br>
+                        <script>
+                            const inputValue = document.getElementById('quantity').value;
+                        </script>
+                        <button class="btn btn-primary" type="button" onclick="addToCart(1,handleInputChange())"> Confirm </button>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="main-footer">
+        <div class="footer-content">
+            <address>Address: latakia st 328</address>
+            <p>Contact Us:</p>
+            <ul>
+                <li>Email: <a href="#">nawaf.store@gmail.com</a></li>
+                <li>Phone: +963 934 123 123</li>
+            </ul>
+        </div>
+        <div class="social-icons">
+            <a href="#"><img src="images/facebook.ico" alt="Facebook"></a>
+            <a href="#"><img src="images/twitterx.png" alt="Twitter"></a>
+            <a href="#"><img src="images/insta.ico" alt="Instagram"></a>
+        </div>
+    </footer>
+
+    <script>
+        const quantityInput = document.getElementById("quantity");
+        const increaseButton = document.getElementById("increase");
+        const decreaseButton = document.getElementById("decrease");
+
+        // // قم بإضافة مستمع للنقر على زر الزيادة
+        increaseButton.addEventListener("click", () => {
+        const currentValue = parseInt(quantityInput.value);
+        const newValue = currentValue + 1;
+        quantityInput.value = newValue;
+        });
+
+        // // قم بإضافة مستمع للنقر على زر الانقاص
+        decreaseButton.addEventListener("click", () => {
+        const currentValue = parseInt(quantityInput.value);
+        const newValue = currentValue - 1;
+        if (newValue >= 1) {
+            quantityInput.value = newValue;
+        }
+        });
+
+    </script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
